@@ -1,0 +1,16 @@
+{
+  "name": "game-boy-discord-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.5.0",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "update-api": "node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
