@@ -12,9 +12,9 @@ jobs:
         node-version: '12.x'
     - uses: bahmutov/npm-install@v1
     - run: npm update-api 
-    - run: |
-      git config user.name github-actions
-      git config user.email github-actions@github.com
-      git add json/
-      git commit -m "Scheduled Update"
-      git push
+    # - run: |
+    #   git config user.name github-actions
+    #   git config user.email github-actions@github.com
+    #   git add json/
+    #   git commit -m "Scheduled Update"
+    #   git push
