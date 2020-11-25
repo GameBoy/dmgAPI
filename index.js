@@ -13,7 +13,7 @@ client.on('ready', async () => {
 
   try {
     await updateMarketplaceJson(client);
-    await client.user.setActivity(':eyes:', { type: 'WATCHING' })
+    await client.user.setActivity(':eyes:', { type: 'WATCHING' });
   } catch(err) {
     logError(err);
   }
