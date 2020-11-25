@@ -31,12 +31,14 @@ const updateMarketplaceJson = async (client) => {
 
   const mpChannel = await client.channels.fetch(MARKETPLACE_CHANNEL_ID);
   const pinnedMessages = await mpChannel.messages.fetchPinned();
+
   const output = pinnedMessages.map((pin) => {
     return {
       user: `${pin.author.username}#${pin.author.discriminator}`,
       message: pin.content,
       created: pin.createdTimestamp,
-      avatar_url: pin.author.avatarURL(),
+      avatar_url: pin.author.avatarURL() ||
+        `https://cdn.discordapp.com/embed/avatars/${pin.author.discriminator % 5}.png`,
       message_id: pin.id,
       embeds: pin.embeds.map(embed => embed.url),
       attachments: pin.attachments.map(attachment => attachment.url),
