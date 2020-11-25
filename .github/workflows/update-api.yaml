@@ -3,7 +3,7 @@ on:
   schedule:
     - cron: "*/5 * * * *"
 jobs:
-  build-deploy:
+  update-api:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -14,7 +14,7 @@ jobs:
     - run: npm update-api 
     - run: |
       git config user.name github-actions
-      git config user.emai github-actions@github.com
+      git config user.email github-actions@github.com
       git add json/
       git commit -m "Scheduled Update"
       git push
