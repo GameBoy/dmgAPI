@@ -11,11 +11,15 @@ const MARKETPLACE_JSON_PATH = `${__dirname}/json/market.json`;
 client.on('ready', async () => {
   console.log(`connected as "${client.user.tag}"`);
 
-  await updateMarketplaceJson(client);
+  try {
+    await updateMarketplaceJson(client);
+  } catch(err) {
+    console.error(`\nERROR ----\n${err.message}\n----------\n`);
+  }
 
-  console.log('done, disconnecting')
+  console.log('done, disconnecting');
   client.destroy();
-})
+});
 
 const updateMarketplaceJson = async (client) => {
   console.log('updating market.json');
