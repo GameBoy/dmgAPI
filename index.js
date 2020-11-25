@@ -14,11 +14,15 @@ client.on('ready', async () => {
   try {
     await updateMarketplaceJson(client);
   } catch(err) {
-    console.error(`\nERROR ----\n${err.message}\n----------\n`);
+    logError(err);
   }
 
-  console.log('done, disconnecting');
-  client.destroy();
+  disconnect();
+});
+
+client.on('error', (err) => {
+  logError(err);
+  disconnect();
 });
 
 const updateMarketplaceJson = async (client) => {
@@ -43,3 +47,12 @@ const updateMarketplaceJson = async (client) => {
     JSON.stringify(output)
   );
 };
+
+const logError = (err) => {
+  console.error(`\nERROR ----\n${err.message}\n----------\n`);
+}
+
+const disconnect = () => {
+  console.log('done, disconnecting');
+  client.destroy();
+}

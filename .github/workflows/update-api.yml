@@ -12,6 +12,8 @@ jobs:
         node-version: '12.x'
     - uses: bahmutov/npm-install@v1
     - run: npm run update-api 
+      env:
+        TOKEN: ${{ secrets.TOKEN }}
     - name: "Commit changes"
       run: |
         git config user.name github-actions
