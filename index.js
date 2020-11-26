@@ -47,7 +47,7 @@ const updateMarketplaceJson = async (client) => {
 
   await fs.promises.writeFile(
     MARKETPLACE_JSON_PATH,
-    JSON.stringify(output)
+    JSON.stringify(output, null, 2)
   );
 };
 
